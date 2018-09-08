@@ -1,0 +1,57 @@
+<Leader> is ,
+
+
+Plug 'arielrossanigo/dir-configs-override.vim'
+- This plugin allows for you to place a .vim.custom file anywhere which overides a .vimrc file in that folder
+- Wont use
+
+Plug 'scrooloose/nerdtree'
+- Yields a directory format to view and open files
+- Will use
+- Commands:
+" toggle nerdtree display
+map <F3> :NERDTreeToggle<CR>
+" open nerdtree with the current file selected
+nmap ,t :NERDTreeFind<CR>
+
+Plug 'scrooloose/nerdcommenter
+- Code Commenter
+- Will use
+<Leader>cc to comment a line (you can select a group of lines in visual block mode and do the same thing)
+<Leader>cu to uncomment a line of block of lines in visual block mode
+
+Plug 'majutsushi/tagbar'
+map <F4>
+- doesn't work won't use
+
+Plug 'ctrlpvim/ctrlp.vim'
+- fuzzy file finder
+- probably just use nerdTree instead
+- Wont Use
+
+Plug 'fisadev/vim-ctrlp-cmdpalette'
+- fuzzy command finder
+- wont use
+
+Plug 'mattn/emmet-vim'
+-used for javascript
+- wont use for now
+
+Plug 'motemen/git-vim'
+- git integration
+
+
+General Commands:
+----------------
+
+Visual Mode:
+**********
+select lines and press > to indent and < to unindents
+>> indents a single line
+<< unindents a single line
+
+
+Changes to vimrc:
+----------------
+added a custom Leader key
+comented out all ctrlp stuff
