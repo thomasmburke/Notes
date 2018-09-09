@@ -12,7 +12,7 @@ Plug 'scrooloose/nerdtree'
 " toggle nerdtree display
 map <F3> :NERDTreeToggle<CR>
 " open nerdtree with the current file selected
-nmap ,t :NERDTreeFind<CR>
+nmap ,nt :NERDTreeFind<CR>
 
 Plug 'scrooloose/nerdcommenter
 - Code Commenter
@@ -39,7 +39,65 @@ Plug 'mattn/emmet-vim'
 
 Plug 'motemen/git-vim'
 - git integration
+- will use 
+- repo recomended I switch to fugitive
+GitAdd {filename} <LEADER>ga
+GitCommit -m "" <Leader>gc
+GitPush origin branchname
+GitPull
+GitStatus <Leader>gs 
+GitCheckout
+Git <args> does any git command
 
+Plug 'kien/tabman.vim'
+- navigate tabs
+- will use
+command is 'tf'
+
+vim-airline/vim-airline
+- in use
+- bottom status bar lines
+
+Plug 'fisadev/FixedTaskList.vim'
+- will use
+- summarizes TODOs in a file
+- command is <Leader>t
+
+Plug 'tpope/vim-surround'
+- wont use
+
+Plug 'Townk/vim-autoclose'
+-will use
+- autoclose braces
+
+Plug 'michaeljsmith/vim-indent-object'
+-wont use
+- indentation tool
+
+Plug 'jeetsukumaran/vim-indentwise'
+- might use
+[- : Move to previous line of lesser indent than the current line.
+[+ : Move to previous line of greater indent than the current line.
+]- : Move to next line of lesser indent than the current line.
+]+ : Move to next line of greater indent than the current line.
+
+Plug 'davidhalter/jedi-vim'
+- will use
+- python ide 
+<Leader>g goto funciton (works with imports)
+<Leader>o show all occurances of a funciton
+<Leader>a goto assignment of a variable
+K gives you pyDoc info on a function
+<Leader>r change all function names
+:Pyimport os (opens the os module)
+
+Plug 'Shougo/neocomplcache.vim'
+- will use
+- autocompletion
+
+Plug 'mhinz/vim-signify'
+- will use
+- use for git symbols
 
 General Commands:
 ----------------
@@ -55,3 +113,11 @@ Changes to vimrc:
 ----------------
 added a custom Leader key
 comented out all ctrlp stuff
+changed nerdtree mapping to ,nt
+changed jedi goto assignment <Leader>g
+
+
+Changes I want to make:
+----------------------
+fix backspace and figure out quick way to not take word suggester
+
