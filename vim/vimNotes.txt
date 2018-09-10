@@ -41,8 +41,8 @@ Plug 'motemen/git-vim'
 - git integration
 - will use 
 - repo recomended I switch to fugitive
-GitAdd {filename} <LEADER>ga
-GitCommit -m "" <Leader>gc
+GitAdd {filename} <LEADER>ga (this defaults to the current file)
+GitCommit  "" <Leader>gc
 GitPush origin branchname
 GitPull
 GitStatus <Leader>gs 
@@ -99,6 +99,23 @@ Plug 'mhinz/vim-signify'
 - will use
 - use for git symbols
 
+vim-isort
+- ctrl i 
+- will use 
+- sorts imports alphabetically
+
+Plug 't9md/vim-choosewin'
+-manuver through windows
+- will use 
+press '-' and select a letter
+
+Plug 'scrooloose/syntastic'
+-checks for errors in a file
+- will use
+<Leader>e
+- don't forget to save first with :w 
+
+
 General Commands:
 ----------------
 
@@ -119,5 +136,5 @@ changed jedi goto assignment <Leader>g
 
 Changes I want to make:
 ----------------------
-fix backspace and figure out quick way to not take word suggester
+fix backspace and figure out quick way to not take word suggester while in insert mode
 
