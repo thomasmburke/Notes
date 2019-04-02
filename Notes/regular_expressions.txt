@@ -1,0 +1,99 @@
+Special characters
+\	escape special characters
+.	matches any character
+^	matches beginning of string
+$	matches end of string
+[5b-d]	matches any chars '5', 'b', 'c' or 'd'
+[^a-c6]	matches any char except 'a', 'b', 'c' or '6'
+R|S	matches either regex R or regex S
+()	creates a capture group and indicates precedence
+Quantifiers
+*	0 or more (append ? for non-greedy)
++	1 or more (append ? for non-greedy)
+?	0 or 1 (append ? for non-greedy)
+{m}	exactly mm occurrences
+{m, n}	from m to n. m defaults to 0, n to infinity
+{m, n}?	from m to n, as few as possible
+Special sequences
+\A	start of string
+\b	matches empty string at word boundary (between \w and \W) 
+\B	matches empty string not at word boundary
+
+given ha haha
+\bha matches the first two ha and not the 3rd
+\Bha  only matches the 3rd ha because it is not at a word boundry
+\bha\b only matches the first ha
+ha$ gets only the last ha
+
+\d	digit
+\D	non-digit
+
+given 123.234.5533 or 123-456-7890
+
+\d\d\d will match any of the 3 digit groups
+\d\d\d.\d\d\d.\d\d\d\d will match the expression 
+to make it more specific we will uses []
+\d\d\d[.-]\d\d\d[.-]\d\d\d\d NOTE you don't have to escape the dot within a character set []
+to find numbers that start with 800 or 900 (800.784.7352)
+[89]00[.-]\d\d\d[.-]\d\d\d\d
+to match 700 numbers too
+[7-9]00[.-]\d\d\d[.-]\d\d\d\d
+this is also the same: [7-9]00[-.]\d{3}[-.]\d{4}
+
+here is a funky one.. how to match everything that is not a lowercase letter?
+[^a-z]
+using the ^ at the start of a [] negates it [^   ]
+
+\s	whitespace: [ \t\n\r\f\v] matches space tab or newline
+\S	non-whitespace
+\w	alphanumeric: [0-9a-zA-Z_]
+\W	non-alphanumeric
+\Z	end of string
+\g<id>	matches a previously defined group
+Special sequences
+(?iLmsux)	matches empty string, sets re.X flags
+(?:...)	non-capturing version of regular parentheses
+(?P...)	matches whatever matched previously named group
+(?P=)	digit
+(?#...)	a comment; ignored
+(?=...)	lookahead assertion: matches without consuming
+(?!...)	negative lookahead assertion
+(?<=...)	lookbehind assertion: matches if preceded
+(?<!...)	negative lookbehind assertion
+(?(id)yes|no)	match 'yes' if group 'id' matched, else 'no'
+
+
+
+Mr. Dude
+Mr Simon
+Mrs. Jan
+Mrs Kdk
+Mr. T
+Ms. Kidid
+
+to find these:
+M(r|s|rs)\.?\s[A-Z]\w*
+() is a group and you can use it to give multiple correct options
+() can be used to capture substrings of your regular expression
+
+write a regular expression to match all three of these emails
+ThomasMBurke@gmail.com
+thomas.burke@bu.edu
+thomas-321-burke@my-work.net
+
+[-A-Za-z0-9.]+@[a-z-]+\.[a-z]{3}
+[-A-Za-z0-9.]+@[a-z-]+\.(com|edu|net)
+
+
+make regex for :
+https://www.google.com
+http://coreyms.com
+https://youtube.com
+https://www.nasa.gov
+
+(http|https)://(www\.)?[a-z]+\.(com|gov)
+now capture the domain name!
+(http|https)://(www\.)?(\w+)\.(com|gov)
+$0 is the full url
+$1 is the http|https
+$2 is www. etc

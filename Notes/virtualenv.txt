@@ -1,0 +1,38 @@
+virtualenv notes:
+
+ Personal Preference:
+ --------------------
+ create a directory called Environments and place all virtualenv's in there based on project name
+
+ To install:
+ ------------
+ pip install virtualenv
+
+ To Create a vitualenv:
+ ----------------------
+ vitualenv nameofvirtualenv
+ OR
+ virtualenv -p pathtopythonversion nameofvirtualenv
+ which python # this will give you the location of python that this virtual env uses
+ #if creating a new build system in sublime specific to a given virtual env use this path
+
+ To edit a virtualenv:
+ ---------------------
+ source nameofvirtualenv/bin/activate
+ pip install packagename
+
+ get virtualenv configuration:
+ -----------------------------
+ pip freeze --local > requirements.txt
+
+ To stop editting a virtualenv:
+ ------------------------------
+ deactivate
+
+installing requirements.txt in a new env:
+-----------------------------------------
+pip install -r requirements.txt
+
+remove a virtualenv:
+--------------------
+rm -rf virtualenvdir
