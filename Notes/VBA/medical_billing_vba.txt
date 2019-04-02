@@ -1,0 +1,111 @@
+Sub TOM()
+
+'DECLARATION OF VARIABLES
+Dim total As Integer
+Dim total2 As Integer
+Dim percent_correct2 As Double
+Dim orig_sum As Integer
+Dim type_sum As Integer
+Dim num_correct As Integer
+Dim percent_correct As Double
+Dim num_correct2 As Integer
+Dim cpt_sum As Integer
+Dim cpt_type_sum As Integer
+
+'FIND TOTAL NUMBER OF ELEMENTS ALSO PLAIN ORIGINAL PART OF CODE
+Range("B3").Select
+Do Until ActiveCell = "ORIGINAL" Or ActiveCell = "Original" Or ActiveCell = "original"
+    ActiveCell.Offset(1, 0).Select
+Loop
+ActiveCell.Offset(1, 0).Select
+
+Do Until ActiveCell = "CPT original" Or ActiveCell = "CPT ORIGINAL" Or ActiveCell = "cpt original" Or ActiveCell = "CPT Original"
+    'if there is something in the box add to the sum
+    If ActiveCell <> "" Then
+        orig_sum = orig_sum + 1
+        If ActiveCell.Offset(0, 2).Value = "" Then
+            num_correct = num_correct + 1
+        End If
+    End If
+    ActiveCell.Offset(1, 0).Select
+Loop
+
+Range("D3").Select
+Do Until ActiveCell = "TYPE" Or ActiveCell = "Type" Or ActiveCell = "type"
+    ActiveCell.Offset(1, 0).Select
+Loop
+ActiveCell.Offset(1, 0).Select
+
+Do Until ActiveCell = "TYPE" Or ActiveCell = "Type" Or ActiveCell = "type"
+    If ActiveCell <> "" Then
+        If ActiveCell.Offset(0, -2).Value = "" Then
+            type_sum = type_sum + 1
+            'if we find something in type then we check original to make sure it is not a duplicate
+        End If
+    End If
+    ActiveCell.Offset(1, 0).Select
+Loop
+
+total = type_sum + orig_sum
+percent_correct = (num_correct / total) * 100
+Range("F4").Value = percent_correct
+Range("F4").NumberFormat = "0.00"
+
+'CPT SECTION OF CODE
+'************************
+
+Range("B3").Select
+Do Until ActiveCell = "CPT original" Or ActiveCell = "CPT ORIGINAL" Or ActiveCell = "cpt original" Or ActiveCell = "CPT Original"
+ActiveCell.Offset(1, 0).Select
+Loop
+ActiveCell.Offset(1, 0).Select
+
+Do Until ActiveCell = "E/M original" Or ActiveCell = "E/M ORIGINAL" Or ActiveCell = "e/m original" Or ActiveCell = "E/M Original"
+    'if there is something in the box add to the sum
+    If ActiveCell <> "" Then
+        cpt_sum = cpt_sum + 1
+        If ActiveCell.Offset(0, 2).Value = "" Then
+            num_correct2 = num_correct2 + 1
+        End If
+    End If
+    ActiveCell.Offset(1, 0).Select
+Loop
+
+Range("D3").Select
+Do Until ActiveCell = "TYPE" Or ActiveCell = "Type" Or ActiveCell = "type"
+    ActiveCell.Offset(1, 0).Select
+Loop
+ActiveCell.Offset(1, 0).Select
+
+Do Until ActiveCell = "TYPE" Or ActiveCell = "Type" Or ActiveCell = "type"
+    ActiveCell.Offset(1, 0).Select
+Loop
+ActiveCell.Offset(1, 0).Select
+
+Do Until ActiveCell = "TYPE" Or ActiveCell = "Type" Or ActiveCell = "type"
+    If ActiveCell <> "" Then
+        If ActiveCell.Offset(0, -2).Value = "" Then
+            cpt_type_sum = cpt_type_sum + 1
+            'if we find something in type then we check original to make sure it is not a duplicate
+        End If
+    End If
+    ActiveCell.Offset(1, 0).Select
+Loop
+
+total2 = cpt_type_sum + cpt_sum
+percent_correct2 = (num_correct2 / total2) * 100
+
+Range("F3").Select
+Do Until ActiveCell = "%"
+    ActiveCell.Offset(1, 0).Select
+Loop
+ActiveCell.Offset(1, 0).Select
+Do Until ActiveCell = "%"
+    ActiveCell.Offset(1, 0).Select
+Loop
+ActiveCell.Offset(1, 0).Select
+ActiveCell.Value = percent_correct2
+ActiveCell.NumberFormat = "0.00"
+
+Range("F:F").EntireColumn.Hidden = True
+End Sub
