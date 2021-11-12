@@ -13,6 +13,7 @@ virtualenv notes:
  vitualenv nameofvirtualenv
  OR
  virtualenv -p pathtopythonversion nameofvirtualenv
+ virtualenv -p $(which python3) nameofvirtualenv
  which python # this will give you the location of python that this virtual env uses
  #if creating a new build system in sublime specific to a given virtual env use this path
 
