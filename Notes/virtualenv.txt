@@ -16,6 +16,9 @@ virtualenv notes:
  virtualenv -p $(which python3) nameofvirtualenv
  which python # this will give you the location of python that this virtual env uses
  #if creating a new build system in sublime specific to a given virtual env use this path
+ 
+ # if having troubles with python path after install the following command may help
+ python3 -m virtualenv -p $(which python3) nameofvirtualenv
 
  To edit a virtualenv:
  ---------------------
